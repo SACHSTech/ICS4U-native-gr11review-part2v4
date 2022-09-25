@@ -1,15 +1,21 @@
 # Grade 11 Java Review Part 2
 
 ## Instructions
-Program the solutions for each problem in their respective files found in the `src/gr11review/part2 directory`.  You are required to:
-* with a partner, each of your coding to your own branch, code your solutions in repl.it
+Program the solutions for each problem in a single `Utility.java` file in  `src/gr11review/part2 directory`.  You are required to:
+
+### a) Code Solutions
+* with a partner, each of your coding to your own branch, code your solutions in VS Code
 * commit and push changes to appropriate development branches in github.
 * merge tested and completed solutions to the main branch.
 * use proper style conventions for variable names and comments.
 
+### b) Test Solutions
+* Create a test class `UtilityTest.java` in the `src/gr11review/part2` directory.
+* With the concepts of the [Types of Tests](https://docs.google.com/document/d/1vkqcF0oocKygmTJXlBd0Izqau0to38rfG7u7gnBGw10/edit?usp=sharing), define test methods to thoroughly test the functionality of your solution methods. 
+* Name your test methods using the name of the solution method + "Test" + test case #.  For example, if your solution method in `Utility.java` is called `abc()`, there should be corresponding test methods in `UtilityTest.java` called `abcTest1(), abcTest2(), abcTest3() ...` etc.
+* tests methods should also be created by each member in their development branch and merged into the main branch.
 
-## Part 2
-For all of the programs below, create a `Utility.java` file that will contain all of your methods. You can test your utility library by making calls to the methods from the Main.java file.
+
 
 ### Methods 1
 
