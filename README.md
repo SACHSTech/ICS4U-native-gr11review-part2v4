@@ -24,6 +24,7 @@ Program the solutions for each problem in a single `Utility.java` file in  `src/
 #### Methods 1
 
 We'll say that a String is xy-balanced if for all the 'x' chars in the string, there exists a 'y' char somewhere later in the string. So "xxy" is balanced, but "xyx" is not. One 'y' can balance multiple 'x's. Return true if the given string is xy-balanced.
+**Signature** `public static boolean xyBalance(String str) `
 
 ##### Examples
 ```
@@ -41,6 +42,17 @@ Given a string, return the sum of the numbers appearing in the string, ignoring 
 sumNumbers("abc123xyz") → 123
 sumNumbers("aa11b33") → 44
 sumNumbers("7 11") → 18
+```
+
+#### Methods 3
+Given a string, does "xyz" appear in the middle of the string? To define middle, we'll say that the number of chars to the left and right of the "xyz" must differ by at most one.
+**Signature** `public static boolean xyzMiddle(String str) `
+
+#### Examples
+```
+xyzMiddle("AAxyzBB") → true
+xyzMiddle("AxyzBB") → true
+xyzMiddle("AxyzBBB") → false
 ```
 
 ### File IO
@@ -61,7 +73,7 @@ consectetur
 adipiscing 
 elit
 ```
-`longestWord("words.txt")` --> `"consectetur"`
+`longestWord("words.txt")` --> `consectetur`
 
 #### File IO - Read 2
 Write a method `alphaWord(String filenametxt)` such that given the name of a file `filenametxt` that contains a single word on each line,  returns the word that is alphabetically first.  
@@ -79,19 +91,40 @@ consectetur
 adipiscing 
 elit
 ```
-`alphaWord("words.txt")` --> `"amet"`
+`alphaWord("words.txt")` --> `amet`
+
+#### File IO - Read 3
+Write a method `vowelCount(String filenametxt)` such that given the name of a file `filenametxt` that contains a single word on each line,  returns the word that has the highest count of vowels.  
+**Signature** `public static String vowelCount(String filenametxt)`
+
+##### Example
+words.txt contains:  
+```
+Lorem
+ipsum
+dolor
+sit
+amet
+consectetur
+adipiscing 
+elit
+```
+`vowelCount("words.txt")` --> `consectetur`
+
+
 
 ### Arrays - One Dimensional, 1 Loop
 
 #### Array 1 - One Dimensional
-For each multiple of 10 in the given array, change all the values following it to be that multiple of 10, until encountering another multiple of 10. So {2, 10, 3, 4, 20, 5} yields {2, 10, 10, 10, 20, 20}.  
-**Signature** `public static int[] tenRun(int[] nums)`
+
+Return a version of the given array where all the 10's have been removed. The remaining elements should shift left towards the start of the array as needed, and the empty spaces a the end of the array should be 0. So `{1, 10, 10, 2}` yields `{1, 2, 0, 0}`. You may modify and return the given array or make a new array. 
+**Signature** `public static int[] withoutTen(int[] nums)`
 
 ##### Examples
 ```
-tenRun([2, 10, 3, 4, 20, 5]) → [2, 10, 10, 10, 20, 20]
-tenRun([10, 1, 20, 2]) → [10, 10, 20, 20]
-tenRun([10, 1, 9, 20]) → [10, 10, 10, 20]
+withoutTen([1, 10, 10, 2]) → [1, 2, 0, 0]
+withoutTen([10, 2, 10]) → [2, 0, 0]
+withoutTen([1, 99, 10]) → [1, 99, 0]
 ```
 
 #### Array 2 - One Dimensional
@@ -106,10 +139,23 @@ notAlone([1, 2, 3, 2, 5, 2], 2) → [1, 3, 3, 5, 5, 2]
 notAlone([3, 4], 3) → [3, 4]
 ```
 
+#### Array 3 - One Dimensional
+
+Return an array that contains the exact same numbers as the given array, but rearranged so that all the zeros are grouped at the start of the array. The order of the non-zero numbers does not matter. So `{1, 0, 0, 1}` becomes `{0 ,0, 1, 1}`. You may modify and return the given array or make a new array.  
+**Signature**  `public static int[] zeroFront(int[] nums) `
+
+
+##### Examples
+```
+zeroFront([1, 0, 0, 1]) → [0, 0, 1, 1]
+zeroFront([0, 1, 1, 0, 1]) → [0, 0, 1, 1, 1]
+zeroFront([1, 0]) → [0, 1]
+```
+
 ### Arrays - One Dimensional, 2 Loops
 
 
-#### Array 3 - One Dimensional - Two Loops
+#### Array 4 - One Dimensional - Two Loops
 Given two arrays of ints sorted in increasing order, `outer` and `inner`, return true if all of the numbers in `inner` appear in `outer`. The best solution makes only a single "linear" pass of both arrays, taking advantage of the fact that both arrays are already in sorted order.  
 **Signature** `public static boolean linearIn(int[] outer, int[] inner)`
 
@@ -121,7 +167,7 @@ linearIn([1, 2, 4, 4, 6], [2, 4]) → true
 ```
 
 
-#### Array 4 - One Dimensional - Two Loops
+#### Array 5 - One Dimensional - Two Loops
 Given a non-empty array, return true if there is a place to split the array so that the sum of the numbers on one side is equal to the sum of the numbers on the other side.  
 **Signature**  `public static boolean canBalance(int[] nums)`
 
@@ -132,9 +178,20 @@ canBalance([2, 1, 1, 2, 1]) → false
 canBalance([10, 10]) → true
 ```
 
+#### Array 6 - One Dimensional - Two Loops
+Given n>=0, create an array with the pattern `{1,    1, 2,    1, 2, 3,   ... 1, 2, 3 .. n}` (spaces added to show the grouping). Note that the length of the array will be 1 + 2 + 3 ... + n, which is known to sum to exactly n*(n + 1)/2.  
+**Signature**  `public static int[] seriesUp(int n)`
+
+##### Examples
+```
+seriesUp(3) → [1, 1, 2, 1, 2, 3]
+seriesUp(4) → [1, 1, 2, 1, 2, 3, 1, 2, 3, 4]
+seriesUp(2) → [1, 1, 2]
+```
+
 ### Arrays - Two Dimensional
 
-#### Array 5 - Two Dimensional
+#### Array 7 - Two Dimensional
 Write a method that takes a 2D array and reverses all of the content in the 2D array. The last value should be the first, and the first value should be the last.  
 
 **Signature** `public static int[][] reverse(int[][] arr)`
@@ -147,7 +204,7 @@ Write a method that takes a 2D array and reverses all of the content in the 2D a
 [3,2,1]
 ```
 
-#### Array 6 - Two Dimensional 
+#### Array 8 - Two Dimensional 
 Write a method that returns a portion of a 2D array based on a specified row and col.  
 **Signature** `public static int[][] split(int[][] arr, int row, int col)`  
 
@@ -156,4 +213,24 @@ For example, the call `split({{1,2,3},{4,5,6},{7,8,9}}, 1, 1)` would return all 
 ```
 [1,2]
 [4,5]
+```
+
+#### Array 9 - Two Dimensional 
+Write a method that inverts a 2D array. Inverting a 2D array means that each row of the 2D array is now a column, and each column is now a row.  
+
+**Signature** `public static int[][] invert(int[][] arr)`  
+
+##### Example
+If we were to invert the 2D array:
+```
+[1,1,1]
+[2,2,2]
+[3,3,3]
+```
+
+the result would be:
+```
+[1,2,3]
+[1,2,3]
+[1,2,3] 
 ```
