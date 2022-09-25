@@ -12,15 +12,14 @@ Program the solutions for each problem in their respective files found in the `s
 For all of the programs below, create a `Utility.java` file that will contain all of your methods. You can test your utility library by making calls to the methods from the Main.java file.
 
 ### Methods 1
-Create a method that for patterns like "zip" and "zap" in the string -- length-3, starting with 'z' and ending with 'p'. Return a string where for all such words, the middle letter is gone, so "zipXzap" yields "zpXzp".   
-**Signature** `public static String zipZap(String str)`
+
+We'll say that a String is xy-balanced if for all the 'x' chars in the string, there exists a 'y' char somewhere later in the string. So "xxy" is balanced, but "xyx" is not. One 'y' can balance multiple 'x's. Return true if the given string is xy-balanced.
 
 #### Examples
 ```
-zipZap("zipXzap") → "zpXzp"
-zipZap("zopzop") → "zpzp"
-zipZap("zzzopzop") → "zzzpzp"
-zipZap("zzzuzoz") → "zzzuzoz"
+xyBalance("aaxbby") → true
+xyBalance("aaxbb") → false
+xyBalance("yaaxbb") → false
 ```
 
 ### Methods 2
@@ -120,54 +119,25 @@ canBalance([10, 10]) → true
 
 
 ### Array 5 - Two Dimensional
-![pascal](/pascal.png)
+Write a method that takes a 2D array and reverses all of the content in the 2D array. The last value should be the first, and the first value should be the last.  
 
-* The first row are the numbers in p[0][0], p[0][1], p[0][2],..., p[0][9]
-* The familiar Pascal triangle is the triangle of numbers with p[0][0] as vertex and the set of numbers p[0][9], p[1][8], p[2][7], p[3][6], ..., p[9][0] as base.
-* Note that p[0][y] is always 1, and that any other number is obtained by adding two of its neighbours: the one above and the one to its left.
-The number 15 for example is 5+10 (or 10+5, depending on which 15 you found)
-
-Write a method `pascalTri(int i, int j)`  that outputs to a text file `pascalOut.txt`, a comma separted table containing `i` rows and `j` columns of pascal's triangle.  Be sure to use two-dimensional array in your solution.  
-**Signature** `public static void pascalTri(int i, int j)`
+**Signature** `public static int[][] reverse(int[][] arr)`
 
 #### Example
-`pascalTri(3, 4)` outputs to pascalOut.txt:  
+`reverse({{1,2,3},{4,5,6},{7,8,9}})` returns
 ```
-1,1,1,1  
-1,2,3,4  
-1,3,6,10
-```  
-
-`pascalTri(4, 5)` outputs to pascalOut.txt:  
+[9,8,7]
+[6,5,4]
+[3,2,1]
 ```
-1,1,1,1,1  
-1,2,3,4,5  
-1,3,6,10,15  
-1,4,10,20,35
-```
-
 
 ### Array 6 - Two Dimensional 
-Given an integer n, write a method `diagonal(int n)` that outputs to a text file `diagonalOut.txt`, a two-dimensional array of size (n×n) populated as follows, with a comma between each number:  
-* The positions on the minor diagonal (from the upper right to the lower left corner) receive 1 .
-* The positions above this diagonal receive 0 .
-* The positions below the diagonal receive 2 .  
-**Signature** `public static void diagonal(int n)`  
+Write a method that returns a portion of a 2D array based on a specified row and col.  
+**Signature** `public static int[][] split(int[][] arr, int row, int col)`  
 
 #### Example
-`diagonal(3)`  outputs to `diagonalOut.txt`:
+For example, the call `split({{1,2,3},{4,5,6},{7,8,9}}, 1, 1)` would return all elements up to that point in the 2D array: 
 ```
-0,0,1
-0,1,2
-1,2,2
-```
-
-`diagonal(8)`  outputs to `diagonalOut.txt`:
-```
-0,0,0,0,0,0,0,1
-0,0,0,0,0,0,1,2
-0,0,0,0,0,1,2,2
-0,0,0,0,1,2,2,2
-0,0,0,1,2,2,2,2
-0,0,1,2,2,2,2,2
+[1,2]
+[4,5]
 ```
