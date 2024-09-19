@@ -1,70 +1,119 @@
-# Grade 11 Java Review Part 2
+# Grade 11 Java Review - Part 2
 
 ## Instructions
-Program the solutions for each problem in a single `Utility.java` file in  `src/gr11review/part2 directory`.  You are required to:
+Program the solutions for the problems described below. Combine all of your solutions into a single [`Utility.java`](src/gr11review/part2/Utility.java) file located in `src/gr11review/part2` directory. 
 
-### a) Code Solutions
-* within a group of two or three, each of your coding to your own branch, code your solutions in VS Code.
-* Each member must pick a problem from each section (Methods, FileIO, Array - One Dimensional 1 Loop, Array - One Dimensional 2 Loops, Two Dimensional Arrays)
-* commit and push changes to appropriate development branches in github.
-* merge tested and completed solutions to the main branch.
-* use proper style conventions for variable names and comments.
+You will be required to:
 
-### b) Test Solutions
-* Create a test class `UtilityTest.java` in the `src/gr11review/part2` directory.
-* With the concepts of the [Types of Tests](https://docs.google.com/document/d/1vkqcF0oocKygmTJXlBd0Izqau0to38rfG7u7gnBGw10/edit?usp=sharing), define test methods to thoroughly test the functionality of your solution methods. 
-* Name your test methods using the name of the solution method + "Test" + test case #.  For example, if your solution method in `Utility.java` is called `abc()`, there should be corresponding test methods in `UtilityTest.java` called `abcTest1(), abcTest2(), abcTest3() ...` etc.
-* tests methods should also be created by each member in their development branch and merged into the main branch.
+### 1. Code Solutions
+* Work collaboratively in a group of 2 or 3 students.
+* Every member should pick **one problem from each category** below, for a total of **five (5) problem per person** to code:
+    * Methods
+    * File I/O
+    * Arrays, 1-dimension, 1-loop
+    * Arrays, 1-dimension, 2-loops
+    * Arrays, 2-dimensions
+* Do not duplicate a problem already in progress.
+* Each member should work on their own **personal branch** of `main`, committing and pushing changes to their respective branches.
+* When solutions are completed (e.g. full documentation and testing methods), create a *Pull Request* from your development branches to merge the changes.
 
-## Problem Sets
+### 2. Test Solutions
+* Create a test class [`UtilityTest.java`](src/gr11review/part2/UtilityTest.java) in the `src/gr11review/part2` directory.
+* Keeping in mind the nature [black-box and white-box testing](NOTES.md#review-notes-testing), define test methods to thoroughly test the functionality of solutions. In addition to test inputs given below, make sure to address edge and corner cases specific to your code.
+* Give your test methods [descriptive names](NOTES.md#naming-tests). 
 
-### Methods
+### 3. Maintain the Codebase
+* Assign one group member the reponsibility of maintaining the codebase. Or, alternatively, meet as a group to maintain the codebase together. 
+* Attend to Pull Requests, merging production-ready changes to the `main` branch.
+* The maintiner(s) should also ensure consistency of style across the codebase, especially with respect to *variable naming*, *comments*, and *test naming*. 
+
+<br><br>
 
 
-#### Methods 1
+## Problem Sets: Methods
 
-We'll say that a String is xy-balanced if for all the 'x' chars in the string, there exists a 'y' char somewhere later in the string. So "xxy" is balanced, but "xyx" is not. One 'y' can balance multiple 'x's. Return true if the given string is xy-balanced.
-**Signature** `public static boolean xyBalance(String str) `
+### Methods 1
+
+A string is considered “xy-balanced” if every occurrence of the character ‘x’ in the string has a corresponding ‘y’ character that appears after it. In other words, for each ‘x’, there must be a ‘y’ somewhere later in the string to “balance” it. Note that one ‘y’ can balance multiple ‘x’s. Your task is to implement a method that checks if a given string is xy-balanced and returns true if it is, or false if it is not.
+
+#### Method Signature
+```java
+public static boolean xyBalance(String str)
+```
 
 ##### Examples
-```
-xyBalance("aaxbby") → true
-xyBalance("aaxbb") → false
-xyBalance("yaaxbb") → false
+```java
+xyBalance("aaxbby") → true   // All 'x's are followed by 'y's later in the string
+xyBalance("aaxbb") → false   // There are 'x's without 'y's after them
+xyBalance("yaaxbb") → false  // Same as above, 'x's are not followed by 'y's
 ```
 
-#### Methods 2
-Given a string, return the sum of the numbers appearing in the string, ignoring all other characters. A number is a series of 1 or more digit chars in a row. (Note: Character.isDigit(char) tests if a char is one of the chars '0', '1', .. '9'. Integer.parseInt(string) converts a string to an int.)
-**Signature** `public static int sumNumbers(String str)`
+<br><br>
+### Methods 2
+You are given a string, and your task is to return the sum of all the numbers that appear in the string, ignoring any non-digit characters. A number is defined as a sequence of one or more consecutive digit characters.
+
+To achieve this, you can use:
+
+	•	`Character.isDigit(char)` to check if a character is a digit (‘0’ to ‘9’).
+	•	`Integer.parseInt(string)` to convert a string of digits into an integer.
+    
+#### Method Signature 
+```java
+public static int sumNumbers(String str)
+```
 
 #### Examples
-```
-sumNumbers("abc123xyz") → 123
-sumNumbers("aa11b33") → 44
-sumNumbers("7 11") → 18
+```java
+sumNumbers("abc123xyz") → 123  
+// Explanation: The only number present in the string is "123", so the sum is 123.
+
+sumNumbers("aa11b33") → 44  
+// Explanation: There are two numbers in the string: "11" and "33". Their sum is 11 + 33 = 44.
+
+sumNumbers("7 11") → 18  
+// Explanation: The numbers present are "7" and "11". Their sum is 7 + 11 = 18.
 ```
 
-#### Methods 3
-Given a string, does "xyz" appear in the middle of the string? To define middle, we'll say that the number of chars to the left and right of the "xyz" must differ by at most one.
-**Signature** `public static boolean xyzMiddle(String str) `
+<br><br>
+### Methods 3
+
+Given a string, does "xyz" appear in the middle of the string? To define middle, we'll say that the number of chars to the left and right of the "xyz" must differ by one, at most.
+
+#### Method Signature 
+```java
+public static boolean xyzMiddle(String str)
+```
 
 #### Examples
-```
-xyzMiddle("AAxyzBB") → true
-xyzMiddle("AxyzBB") → true
-xyzMiddle("AxyzBBB") → false
+```java
+xyzMiddle("AAxyzBB") → true  
+// Explanation: The substring "xyz" is in the middle. There are two characters ("AA") to the left and two characters ("BB") to the right of "xyz". 
+// The number of characters to the left and right of "xyz" are equal, so the method returns true.
+
+xyzMiddle("AxyzBB") → true  
+// Explanation: The substring "xyz" is in the middle. There is one character ("A") to the left and two characters ("BB") to the right of "xyz". 
+// The difference in the number of characters on either side of "xyz" is 1, which is within the allowed limit. Thus, the method returns true.
+
+xyzMiddle("AxyzBBB") → false  
+// Explanation: The substring "xyz" is not in the middle. There is one character ("A") to the left and three characters ("BBB") to the right of "xyz". 
+// The difference in the number of characters on either side is 2, which exceeds the allowed limit. Thus, the method returns false.
 ```
 
-### File IO
+<br><br>
+## Problem Sets: File I/O
 
-#### File IO - Read 1
-Write a method `longestWord(String filenametxt)` such that given the name of a file `filenametxt` that contains a single word on each line,  returns the longest word in the file.  
-**Signature** `public static String longestWord(String filenametxt)`
+### File I/O 1
+Write a method `longestWord` that reads a file containing one word per line and returns the longest word found in the file. The file will have multiple lines, and each line contains only a single word. 
+
+#### Method Signature 
+```java
+public static String longestWord(String filenametxt)
+```
 
 #### Example
-words.txt contains:  
+The file [`words.txt`](src/gr11review/part2/words.txt) contains:  
 ```
-Lorem
+lorem
 ipsum
 dolor
 sit
@@ -73,16 +122,25 @@ consectetur
 adipiscing 
 elit
 ```
-`longestWord("words.txt")` --> `consectetur`
-
-#### File IO - Read 2
-Write a method `alphaWord(String filenametxt)` such that given the name of a file `filenametxt` that contains a single word on each line,  returns the word that is alphabetically first.  
-**Signature** `public static String alphaWord(String filenametxt)`
-
-##### Example
-words.txt contains:  
+Thus, the test case:
+```java
+longestWord("words.txt") → "consectetur"
+// Explanation: The method reads each word from the file. The word "consectetur" has the most characters (11), which is longer than any other word in the file. Therefore, the method returns "consectetur".
 ```
-Lorem
+
+<br><br>
+### File I/O 2
+ write a method alphaWord that reads a file containing one word per line and returns the word that is alphabetically first in sequence.
+
+#### Method Signature
+```java
+public static String alphaWord(String filenametxt)
+```
+
+#### Example
+The file [`words.txt`](src/gr11review/part2/words.txt) contains:  
+```
+lorem
 ipsum
 dolor
 sit
@@ -91,16 +149,25 @@ consectetur
 adipiscing 
 elit
 ```
-`alphaWord("words.txt")` --> `amet`
-
-#### File IO - Read 3
-Write a method `vowelCount(String filenametxt)` such that given the name of a file `filenametxt` that contains a single word on each line,  returns the word that has the highest count of vowels.  
-**Signature** `public static String vowelCount(String filenametxt)`
-
-##### Example
-words.txt contains:  
+Thus, the test case:
+```java
+alphaWord("words.txt") → "amet"
+// Explanation: The method reads all the words from the file and compares them alphabetically. "amet" is the word that comes first alphabetically among all the words, so the method returns "amet".
 ```
-Lorem
+
+<br><br>
+### File I/O 3
+Write a method `vowelCount` that reads a file containing one word per line and returns the word that has the highest number of vowels (a, e, i, o, u). If there is a tie (i.e. multiple words with the same number of vowels), return the first word that reaches the maximum vowel count.
+
+#### Method Signature
+```java
+public static String vowelCount(String filenametxt)
+```
+
+#### Example
+The file [`words.txt`](src/gr11review/part2/words.txt) contains:  
+```
+lorem
 ipsum
 dolor
 sit
@@ -109,128 +176,238 @@ consectetur
 adipiscing 
 elit
 ```
-`vowelCount("words.txt")` --> `consectetur`
-
-
-
-### Arrays - One Dimensional, 1 Loop
-
-#### Array 1 - One Dimensional
-
-Return a version of the given array where all the 10's have been removed. The remaining elements should shift left towards the start of the array as needed, and the empty spaces a the end of the array should be 0. So `{1, 10, 10, 2}` yields `{1, 2, 0, 0}`. You may modify and return the given array or make a new array. 
-**Signature** `public static int[] withoutTen(int[] nums)`
-
-##### Examples
+Thus, the test case:
+```java
+vowelCount("words.txt") → "consectetur"
+// Explanation: The method reads each word and counts the number of vowels (a, e, i, o, u) in each word. The word "consectetur" contains 4 vowels, which is the highest vowel count in the file. Therefore, the method returns "consectetur".
 ```
+
+
+<br><br>
+## Problem Sets: Arrays with 1-dimension, 1-loop
+
+### Array 1
+Given an array, return a version of the array where all instances of the number `10` are removed. The remaining elements should shift to the left, and the empty spaces at the end of the array should be filled with `0`s. You can modify and return the given array or create a new one.
+
+#### Method Signature 
+```java
+public static int[] withoutTen(int[] nums)
+```
+
+#### Examples
+```java
 withoutTen([1, 10, 10, 2]) → [1, 2, 0, 0]
+// Explanation: The two occurrences of 10 are removed, and the remaining numbers (1 and 2) shift to the left. The empty spaces are filled with 0s.
+
 withoutTen([10, 2, 10]) → [2, 0, 0]
+// Explanation: The occurrences of 10 are removed, and the number 2 shifts to the left. The empty spaces are filled with 0s.
+
 withoutTen([1, 99, 10]) → [1, 99, 0]
+// Explanation: The occurrence of 10 is removed, and the numbers 1 and 99 shift to the left. The empty space is filled with 0.
 ```
 
-#### Array 2 - One Dimensional
-We'll say that an element in an array is "alone" if there are values before and after it, and those values are different from it. Return a version of the given array where every instance of the given value which is alone is replaced by whichever value to its left or right is larger.
-public int[] notAlone(int[] nums, int val)  
-**Signature** `public static int[] notAlone(int[] nums, int value)`
+<br><br>
+### Array 2
+We define an element in an array as “alone” if it has different values immediately before and after it. Your task is to return a modified version of the array where any instance of the specified value that is “alone” is replaced by the larger of its neighboring values (either the one to the left or the one to the right).
 
-##### Examples
+#### Method Signature
+```java
+public static int[] notAlone(int[] nums, int value)
 ```
+
+#### Examples
+```java
 notAlone([1, 2, 3], 2) → [1, 3, 3]
+// Explanation: The number 2 is alone (it's between 1 and 3), so it's replaced by 3 (the larger of its neighbors).
+
 notAlone([1, 2, 3, 2, 5, 2], 2) → [1, 3, 3, 5, 5, 2]
+// Explanation: The first and second occurrences of 2 are alone and are replaced by the larger neighbor values (3 and 5, respectively). The last occurrence of 2 is not alone, so it remains unchanged.
+
 notAlone([3, 4], 3) → [3, 4]
+// Explanation: There are no "alone" elements because 3 does not have two neighbors. Therefore, the array remains the same.
 ```
 
-#### Array 3 - One Dimensional
+<br><br>
+### Array 3
+Given an array, return a new array where all the zeros are moved to the front, while the order of the non-zero elements does not matter. For example, the array `{1, 0, 0, 1}` should become `{0, 0, 1, 1}`. You can either modify and return the original array or create a new one.
 
-Return an array that contains the exact same numbers as the given array, but rearranged so that all the zeros are grouped at the start of the array. The order of the non-zero numbers does not matter. So `{1, 0, 0, 1}` becomes `{0 ,0, 1, 1}`. You may modify and return the given array or make a new array.  
-**Signature**  `public static int[] zeroFront(int[] nums) `
-
-
-##### Examples
+#### Method Signature
+```java
+public static int[] zeroFront(int[] nums)
 ```
+
+#### Examples
+```java
 zeroFront([1, 0, 0, 1]) → [0, 0, 1, 1]
+// Explanation: All the zeros are moved to the front, and the remaining non-zero elements follow.
+
 zeroFront([0, 1, 1, 0, 1]) → [0, 0, 1, 1, 1]
+// Explanation: The zeros are placed at the front, and the non-zero elements follow.
+
 zeroFront([1, 0]) → [0, 1]
+// Explanation: The single zero is placed at the front, and the non-zero element follows.
 ```
 
-### Arrays - One Dimensional, 2 Loops
+<br><br>
+## Problem Sets: Arrays with 1-dimension, 2-loops
 
+### Array 4
+Given two sorted arrays of integers, `outer` and `inner`, return `true` if every number in the `inner` array also appears in the `outer` array. The best solution should make a single linear pass through both arrays by taking advantage of the fact that both arrays are already sorted in increasing order.
 
-#### Array 4 - One Dimensional - Two Loops
-Given two arrays of ints sorted in increasing order, `outer` and `inner`, return true if all of the numbers in `inner` appear in `outer`. The best solution makes only a single "linear" pass of both arrays, taking advantage of the fact that both arrays are already in sorted order.  
-**Signature** `public static boolean linearIn(int[] outer, int[] inner)`
-
-##### Examples
-```
-linearIn([1, 2, 4, 6], [2, 4]) → true
-linearIn([1, 2, 4, 6], [2, 3, 4]) → false
-linearIn([1, 2, 4, 4, 6], [2, 4]) → true
+#### Method Signature
+```java
+public static boolean linearIn(int[] outer, int[] inner)
 ```
 
+#### Examples
+```java
+linearIn([1, 2, 4, 6], [2, 4]) → true  
+// Explanation: All numbers in `inner` (2, 4) are present in `outer`, so the method returns true.
 
-#### Array 5 - One Dimensional - Two Loops
-Given a non-empty array, return true if there is a place to split the array so that the sum of the numbers on one side is equal to the sum of the numbers on the other side.  
-**Signature**  `public static boolean canBalance(int[] nums)`
+linearIn([1, 2, 4, 6], [2, 3, 4]) → false  
+// Explanation: The number 3 from `inner` is not present in `outer`, so the method returns false.
 
-##### Examples
-```
-canBalance([1, 1, 1, 2, 1]) → true
-canBalance([2, 1, 1, 2, 1]) → false
-canBalance([10, 10]) → true
-```
-
-#### Array 6 - One Dimensional - Two Loops
-Given n>=0, create an array with the pattern `{1,    1, 2,    1, 2, 3,   ... 1, 2, 3 .. n}` (spaces added to show the grouping). Note that the length of the array will be 1 + 2 + 3 ... + n, which is known to sum to exactly n*(n + 1)/2.  
-**Signature**  `public static int[] seriesUp(int n)`
-
-##### Examples
-```
-seriesUp(3) → [1, 1, 2, 1, 2, 3]
-seriesUp(4) → [1, 1, 2, 1, 2, 3, 1, 2, 3, 4]
-seriesUp(2) → [1, 1, 2]
+linearIn([1, 2, 4, 4, 6], [2, 4]) → true  
+// Explanation: All numbers in `inner` (2, 4) are present in `outer`, so the method returns true.
 ```
 
-### Arrays - Two Dimensional
+<br><br>
+### Array 5
+Given a non-empty array of integers, return `true` if you can split the array into two parts such that the sum of the numbers in one part equals the sum of the numbers in the other part.
 
-#### Array 7 - Two Dimensional
-Write a method that takes a 2D array and reverses all of the content in the 2D array. The last value should be the first, and the first value should be the last.  
+#### Method Signature
+```java
+public static boolean canBalance(int[] nums)
+```
 
-**Signature** `public static int[][] reverse(int[][] arr)`
+#### Examples
+```java
+canBalance([1, 1, 1, 2, 1]) → true  
+// Explanation: The array can be split after the third element. The sum of the first three elements (1 + 1 + 1) equals the sum of the last two elements (2 + 1).
 
-##### Example
-`reverse({{1,2,3},{4,5,6},{7,8,9}})` returns
+canBalance([2, 1, 1, 2, 1]) → false  
+// Explanation: There is no way to split the array so that both parts have the same sum.
+
+canBalance([10, 10]) → true  
+// Explanation: The array can be split between the two elements. The sum of the first part (10) equals the sum of the second part (10).
+```
+
+<br><br>
+### Array 6
+Given a number `n >= 0`, create an array that contains a repeated sequence pattern: `{1,    1, 2,    1, 2, 3,   ... 1, 2, 3 .. n}` (spaces added to emphasize the grouping). The length of the resulting array is the sum of integers from `1` to `n` (i.e., `n*(n+1)/2`).
+
+
+#### Method Signature  
+```java
+public static int[] seriesUp(int n)
+```
+
+#### Examples
+```java
+seriesUp(3) → [1, 1, 2, 1, 2, 3]  
+// Explanation: The array follows the pattern of starting with 1, then adding increasing numbers until 3.
+
+seriesUp(4) → [1, 1, 2, 1, 2, 3, 1, 2, 3, 4]  
+// Explanation: The pattern now goes up to 4.
+
+seriesUp(2) → [1, 1, 2]  
+// Explanation: The pattern stops at 2.
+```
+
+<br><br>
+## Problem Sets: Arrays with 2-dimensions
+
+### Array 7
+Write a method that reverses the content of a 2D array. The last value in the original array should become the first, and the first value should become the last, while maintaining the original shape of the 2D array.
+
+#### Method Signature
+```java
+public static int[][] reverse(int[][] arr)
+```
+
+#### Example
+```java
+reverse({{1,2,3},{4,5,6},{7,8,9}}) → {{9,8,7},{6,5,4},{3,2,1}}
+// Explanation: All elements in the 2D array are reversed. The last element (9) becomes the first, and the first element (1) becomes the last.
+```
+Or, visualized in rows and columns:
+
+```
+[1,2,3]
+[4,5,6]
+[7,8,9]
+```
+returns
+
 ```
 [9,8,7]
 [6,5,4]
 [3,2,1]
 ```
 
-#### Array 8 - Two Dimensional 
-Write a method that returns a portion of a 2D array based on a specified row and col.  
-**Signature** `public static int[][] split(int[][] arr, int row, int col)`  
 
-##### Example
-For example, the call `split({{1,2,3},{4,5,6},{7,8,9}}, 1, 1)` would return all elements up to that point in the 2D array: 
+<br><br>
+### Array 8
+Write a method that returns a subarray from a given 2D array, including only the elements up to the specified row and column. The resulting array should include all rows and columns from the original array up to, but not exceeding, the given `row` and `col`.
+
+#### Method Signature
+```java
+public static int[][] split(int[][] arr, int row, int col)
+```
+
+#### Example
+```java
+split({{1,2,3},{4,5,6},{7,8,9}}, 1, 1) → {{1,2},{4,5}}
+// Explanation: The result includes all elements up to row 1 and column 1 of the original 2D array.
+```
+Or, visualized in rows and columns:
+
+```
+[1,2,3]
+[4,5,6]
+[7,8,9]
+```
+returns
+
 ```
 [1,2]
 [4,5]
 ```
 
-#### Array 9 - Two Dimensional 
-Write a method that inverts a 2D array. Inverting a 2D array means that each row of the 2D array is now a column, and each column is now a row.  
 
-**Signature** `public static int[][] invert(int[][] arr)`  
 
-##### Example
-If we were to invert the 2D array:
+
+<br><br>
+### Array 9
+Write a method that inverts a 2D array. Inverting means that each row of the original array becomes a column in the new array, and each column in the original array becomes a row.
+
+Note, in linear algebra, this is known as a matrix transpose.
+
+#### Method Signature
+```java
+public static int[][] invert(int[][] arr)
+```
+
+#### Example
+```java
+invert({{1,1,1},{2,2,2},{3,3,3}}) → {{1,2,3},{1,2,3},{1,2,3}}
+// Explanation: Each row in the original array becomes a column in the new array, and vice versa.
+```
+Or, visualized in rows and columns:
+
 ```
 [1,1,1]
 [2,2,2]
 [3,3,3]
 ```
+returns
 
-the result would be:
 ```
 [1,2,3]
 [1,2,3]
 [1,2,3] 
 ```
+
+
+
+<br><br>
