@@ -107,7 +107,7 @@ Write a method `longestWord` that reads a file containing one word per line and 
 
 #### Method Signature 
 ```java
-public static String longestWord(String filenametxt)
+public static String longestWord(String filenametxt) throws IOException
 ```
 
 #### Example
@@ -134,7 +134,7 @@ longestWord("words.txt") → "consectetur"
 
 #### Method Signature
 ```java
-public static String alphaWord(String filenametxt)
+public static String alphaWord(String filenametxt) throws IOException
 ```
 
 #### Example
@@ -161,7 +161,7 @@ Write a method `vowelCount` that reads a file containing one word per line and r
 
 #### Method Signature
 ```java
-public static String vowelCount(String filenametxt)
+public static String vowelCount(String filenametxt) throws IOException
 ```
 
 #### Example
