@@ -130,7 +130,7 @@ longestWord("words.txt") → "consectetur"
 
 <br><br>
 ### File I/O 2
- write a method alphaWord that reads a file containing one word per line and returns the word that is alphabetically first in sequence.
+ Write a method `alphaWord` that reads a file containing one word per line and returns the word that is alphabetically first in sequence.
 
 #### Method Signature
 ```java
@@ -157,7 +157,7 @@ alphaWord("words.txt") → "amet"
 
 <br><br>
 ### File I/O 3
-Write a method `vowelCount` that reads a file containing one word per line and returns the word that has the highest number of vowels (a, e, i, o, u). If there is a tie (i.e. multiple words with the same number of vowels), return the first word that reaches the maximum vowel count.
+Write a method `vowelCount` that reads a file containing one word per line and returns the word that has the highest number of vowels (`a`, `e`, `i`, `o`, `u`). If there is a tie (i.e. multiple words with the same number of vowels), return the first word that reaches the maximum vowel count.
 
 #### Method Signature
 ```java
@@ -318,7 +318,7 @@ seriesUp(2) → [1, 1, 2]
 ## Problem Sets: Arrays with 2-dimensions
 
 ### Array 7
-Write a method that reverses the content of a 2D array. The last value in the original array should become the first, and the first value should become the last, while maintaining the original shape of the 2D array.
+Write a method that reverses the contents of a 2D array. The last value in the original array should become the first, and the first value should become the last, while maintaining the original shape of the 2D array.
 
 #### Method Signature
 ```java
