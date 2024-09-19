@@ -6,26 +6,27 @@ Program the solutions for the problems described below. Combine all of your solu
 You will be required to:
 
 ### 1. Code Solutions
-* Work collaboratively in a group of 2 or 3 students.
-* Every member should pick **one problem from each category** below, for a total of **five (5) problem per person** to code:
+* Work collaboratively in a group of 2 or 3 members.
+* Each member should pick **one problem per category** below, for a total of **five (5) problem per person** to code:
     * Methods
     * File I/O
     * Arrays, 1-dimension, 1-loop
     * Arrays, 1-dimension, 2-loops
     * Arrays, 2-dimensions
 * Do not duplicate a problem already in progress.
-* Each member should work on their own **personal branch** of `main`, committing and pushing changes to their respective branches.
-* When solutions are completed (e.g. full documentation and testing methods), create a *Pull Request* from your development branches to merge the changes.
+* Each member should work on their own **personal branch** of `main`, committing and pushing changes to their own branch.
+* When solutions are completed (e.g. full documentation and testing methods), create a **Pull Request** from your development branch to merge the changes into a single [`Utility.java`](src/gr11review/part2/Utility.java) file.
 
 ### 2. Test Solutions
 * Create a test class [`UtilityTest.java`](src/gr11review/part2/UtilityTest.java) in the `src/gr11review/part2` directory.
-* Keeping in mind the nature [black-box and white-box testing](NOTES.md#review-notes-testing), define test methods to thoroughly test the functionality of solutions. In addition to test inputs given below, make sure to address edge and corner cases specific to your code.
+* Keeping in mind the nature of [black-box and white-box testing](NOTES.md#review-notes-testing), define methods to thoroughly test the functionality of solutions. 
+* In addition to example inputs given below, you should address **edge cases** and **corner cases** specific to your code.
 * Give your test methods [descriptive names](NOTES.md#naming-tests). 
 
 ### 3. Maintain the Codebase
 * Assign one group member the reponsibility of maintaining the codebase. Or, alternatively, meet as a group to maintain the codebase together. 
 * Attend to Pull Requests, merging production-ready changes to the `main` branch.
-* The maintiner(s) should also ensure consistency of style across the codebase, especially with respect to *variable naming*, *comments*, and *test naming*. 
+* Work together to ensure consistency of style across the codebase, especially with respect to *variable naming*, *comments*, and *test naming*. 
 
 <br><br>
 
@@ -34,7 +35,7 @@ You will be required to:
 
 ### Methods 1
 
-A string is considered “xy-balanced” if every occurrence of the character ‘x’ in the string has a corresponding ‘y’ character that appears after it. In other words, for each ‘x’, there must be a ‘y’ somewhere later in the string to “balance” it. Note that one ‘y’ can balance multiple ‘x’s. Your task is to implement a method that checks if a given string is xy-balanced and returns true if it is, or false if it is not.
+A string is considered “xy-balanced” if every occurrence of the character `x` in the string has a corresponding `y` character that appears after it. In other words, for each `x`, there must be a `y` somewhere later in the string to “balance” it. Note that one `y` can balance multiple `x`s. Your task is to implement a method that checks if a given string is xy-balanced and returns `true` if it is, or `false` if it is not.
 
 #### Method Signature
 ```java
@@ -54,8 +55,8 @@ You are given a string, and your task is to return the sum of all the numbers th
 
 To achieve this, you can use:
 
-	•	`Character.isDigit(char)` to check if a character is a digit (‘0’ to ‘9’).
-	•	`Integer.parseInt(string)` to convert a string of digits into an integer.
+- `Character.isDigit(char)` to check if a character is a digit (`0` to `9`).
+- `Integer.parseInt(string)` to convert a string of digits into an integer.
     
 #### Method Signature 
 ```java
@@ -76,8 +77,7 @@ sumNumbers("7 11") → 18
 
 <br><br>
 ### Methods 3
-
-Given a string, does "xyz" appear in the middle of the string? To define middle, we'll say that the number of chars to the left and right of the "xyz" must differ by one, at most.
+Given a string, does `xyz` appear in the middle of the string? To define middle, we'll say that the number of `chars` to the left and right of the `xyz` must differ by one, at most.
 
 #### Method Signature 
 ```java
