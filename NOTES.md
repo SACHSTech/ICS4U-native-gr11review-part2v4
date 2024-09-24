@@ -64,6 +64,7 @@ public class MyMathTest {
     public void add_positiveIntegers_returnsSum() {
         assertEquals(5, MyMath.add(2, 3));
     }
+
 }
 ```
 - `import` statements: Imports all static methods from the `Assertions` class in JUnit, allowing you to use [assertion methods](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html) like `assertEquals`, `assertTrue`, `assertFalse`, etc. Also imports the `@Test` annotation, used in your code to mark methods as test cases.
@@ -71,6 +72,53 @@ public class MyMathTest {
 - `@Test`: Tells JUnit this method is a test case.
 - `public void add_positiveIntegers_returnsSum()`: Descriptive method name incorporating the method name (`add`), the input (`positiveIntegers`), and expected results (`returnsSum`). This makes the test more readable and self-documenting.
 - `assertEquals(expected, actual)`: This [assertion method](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html) checks whether the two arguments (`expected` and `actual`) are equal. If they are not, the test fails.
+
+### Common Assertion Methods
+Here are some common [assertion methods](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html) you can use in your tests:
+
+#### `assertEquals(expected, actual)`
+- **Usage**: Checks if two values are equal.
+- **Example**: 
+  ```java
+  assertEquals(5, sum(2, 3));
+  ```
+
+#### `assertTrue(condition)`
+- **Usage**: Verifies that a condition is `true`.
+- **Example**: 
+  ```java
+  assertTrue(isEven(4));
+  ```
+
+#### `assertFalse(condition)`
+- **Usage**: Verifies that a condition is `false`.
+- **Example**: 
+  ```java
+  assertFalse(isOdd(4));
+  ```
+
+#### `assertArrayEquals(expectedArray, actualArray)`
+- **Usage**: Checks if two arrays are equal (element by element).
+- **Example**: 
+  ```java
+  assertArrayEquals(new int[]{1, 2, 3}, getArray());
+  ```
+- **Note**: Using `assertEquals()` checks for object equality (i.e., whether the two array references point to the same memory address) instead of comparing the actual contents of the arrays. This is why we use `assertArrayEquals()` instead.
+
+#### `assertNull(object)`
+- **Usage**: Checks if an object is `null`.
+- **Example**: 
+  ```java
+  assertNull(findUserById(100));
+  ```
+
+#### `assertNotNull(object)`
+- **Usage**: Checks if an object is not `null`.
+- **Example**: 
+  ```java
+  assertNotNull(createNewUser("Alice"));
+  ```
+
 
 <br><br>
 
