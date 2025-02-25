@@ -23,10 +23,19 @@ You will be required to:
 * In addition to example inputs given below, you should address **edge cases** and **corner cases** specific to your code.
 * Give your test methods [descriptive names](NOTES.md#naming-tests). 
 
-### 3. Maintain the Codebase
-* Assign one group member the reponsibility of maintaining the codebase. Or, alternatively, meet as a group to maintain the codebase together. 
-* Attend to Pull Requests, merging production-ready changes to the `main` branch.
-* Work together to ensure consistency of style across the codebase, especially with respect to *variable naming*, *comments*, and *test naming*. 
+### 3. Maintain the Codebase  
+* Assign one group member the responsibility of maintaining the codebase, or meet as a group to maintain it together.  
+* Attend to **Pull Requests (PRs)** with code reviews before merging changes into `main`. **No PR should be merged without undergoing a review.**  
+* Use **GitHub’s review tools** to leave comments, suggest changes, and approve PRs.  
+* Ensure **consistency across the codebase**, especially for:
+  - **Variable naming** (camelCase for variables, PascalCase for classes)
+  - **Comments and documentation** (clear Javadocs and meaningful inline comments)
+  - **Code formatting** (consistent indentation, spacing, and braces)
+  - **Test naming** (descriptive names that reflect what is being tested)
+* Verify that all **tests pass** before merging a PR. Encourage writing additional test cases for edge cases.  
+* The **assigned maintainer should ensure that no one merges their own PR** without review. At least one other group member must approve before merging.  
+* Encourage **constructive feedback** in code reviews, focusing on clarity, efficiency, and correctness.  
+* Order the methods (in [`Utility.java`](src/gr11review/part2/Utility.java)) and tests (in [`UtilityTest.java`](src/gr11review/part2/UtilityTest.java)) such that they maintain the same order as the problem sets below (i.e. Methods 1-3, File I/O 1-3, Array 1-9).
 
 <br><br>
 
