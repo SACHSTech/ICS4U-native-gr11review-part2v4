@@ -29,7 +29,7 @@ You will be required to:
 * Use **GitHub’s review tools** to leave comments, suggest changes, and approve PRs.  
 * Ensure **consistency across the codebase**, especially for:
   - **Variable naming** (camelCase for variables, PascalCase for classes)
-  - **Comments and documentation** (clear Javadocs and meaningful inline comments)
+  - **Comments and documentation** (clear Javadocs with `@author` field, informative but not excessive inline comments)
   - **Code formatting** (consistent indentation, spacing, and braces)
   - **Test naming** (descriptive names that reflect what is being tested)
 * Verify that all **tests pass** before merging a PR. Encourage writing additional test cases for edge cases.  
