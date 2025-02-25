@@ -35,7 +35,7 @@ You will be required to:
 * Verify that all **tests pass** before merging a PR. Account for all possible edge cases with your tests.  
 * The **assigned maintainer should ensure that no one merges their own PR** without review. At least one other group member must approve before merging.  
 * Encourage **constructive feedback** in code reviews, focusing on clarity, efficiency, and correctness.  
-* Order the methods (in [`Utility.java`](src/gr11review/part2/Utility.java)) and tests (in [`UtilityTest.java`](src/gr11review/part2/UtilityTest.java)) such that they maintain the same order as the problem sets below (i.e. Methods 1-3, File I/O 1-3, Array 1-9).
+* Arrange the methods (in [`Utility.java`](src/gr11review/part2/Utility.java)) and tests (in [`UtilityTest.java`](src/gr11review/part2/UtilityTest.java)) such that they appear in the same order as the problem sets below (i.e. Methods 1-3, File I/O 1-3, Array 1-9).
 
 <br><br>
 
